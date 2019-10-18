@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>HTML Development</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<img src="img\logo.PNG" align = "left" style="border:0px solid black"></img>
+			<div class="slides">
+				<section>
+					<h2>Wellcome</h2>
+					<p> <font size="4">HTML tagging</font></p>
+				</section>
+				<section>
+					<section>
+						<p style="text-align:left;">HTML tagging</p>
+						<p style="font-size:50%;text-align:justify;">
+							<br>&nbsp;<font style="color:orange;">How to make webtracking/testing more reliable?</font>
+							<br>&nbsp;&#9900;&nbsp;&nbsp;&nbsp; Use id tags in the elements
+							<br>&nbsp;&#9900;&nbsp;&nbsp;&nbsp; Communication between front end and test dev
+							<br>
+							<br><a href="#" class="navigate-down">Examples</a>
+
+						</p>
+					</section>
+					<section>
+						<p style="text-align:left;">HTML tagging</p>
+						<div style="font-size:50%;text-align:left;">
+							<p>Navigation bar</p>
+							<img src="img\navbar_bottom.PNG" align = "left" style="border:0px solid black"></img>
+							<p>	relevant HTML</p>
+							<img src="img\navbar_html.PNG" align = "left" style="border:0px solid black"></img>
+						</div>
+						</section>
+						<section>
+						<p style="text-align:left;">HTML tagging</p>
+						<p style="font-size:50%;text-align:left;">
+							<br> How do you capture this?
+						</p>
+
+						<p style="font-size:38%;text-align:justify;background-color:rgb(16, 42, 61);" >
+
+							<br> &nbsp;&nbsp;&nbsp;&nbsp;hold1 = browser.<font style="color:DodgerBlue;">find_element_by_xpath</font>(<font style="color:rgb(60, 179, 113);"><b>"//div[@class = 'Navigation__TopLevelNavigationWrapperCss-sacwol-0 gKAIKz']"</b></font>)
+							<br> &nbsp;&nbsp;&nbsp;&nbsp;CasinoButton = hold1.<font style="color:DodgerBlue;">find_elements_by_xpath</font>(<font style="color:rgb(60, 179, 113);"><b>".//div[@class = 'NavigationItem__NavButtonContainerCss-sc-1h3iu9k-0 ijEaQd']"</b></font>)[<font style="color:red;"><b>-1</b></font>]
+							<br> &nbsp;&nbsp;&nbsp;&nbsp;CasinoButton.<font style="color:DodgerBlue;">click()</font>
+							<br> &nbsp;
+						</p>
+
+						<p style="font-size:45%;text-align:justify;">
+							Alternatively, you could
+							<br>&nbsp;&#9900;&nbsp;&nbsp;&nbsp;look for an item where the text prints casino,
+							<br>&nbsp;&#9900;&nbsp;&nbsp;&nbsp;or implement an id for each element on the Navigation Bar
+							<br>
+							<br><a href="#" class="navigate-right">Lets see another exmple</a>
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<p style="text-align:left;">HTML tagging</p>
+						<p style="font-size:60%;text-align:justify;">Lazy loading</p>
+						<p style="font-size:50%;text-align:justify;">When working on website with a lot of media or iframe content it's important to load lazily.
+							Meaning only load contents when those are near to what you are looking at. This has been introduced with the recent web update on the sport and the casino side as well.
+						 	There is nothing wrong with lazy loading from the testing perspective, however if the tags are not in place it makes things complicated, more time-consuming and sensitive to changes.
+							<br><br><a href="#" class="navigate-down">Example</a></p>
+					</section>
+					<section>
+						<p style="text-align:left;">HTML tagging</p>
+						<p style="font-size:60%;text-align:justify;">Lazy loading</p>
+						<picture>
+							<img src="img\Lazy.PNG" align = "left" style="border:0px solid black"></img>
+						</picture>
+						<p style="font-size:40%;text-align:justify;"><br><br><br><br><br><br><br><br><br><br><br>This is basically the top of the casino site
+							<font style="color:rgb(99, 178, 0);">id=</font><font style="color:DodgerBlue;">"two-column"</font> covers a container for the left side of the page.
+							This contains 6 wrapper container-box for the games. Only the first one has a class, that is the banner, which is being followed by Feaatured, Video Bingo, Slots, Cards, Roulette.
+							As you can see the next 3 elements are not active. I can scroll using the script, however but the positions can change any time if Casino decides to show more or less then n rows within a category.
+							<br><br><a href="#" class="navigate-down">Suggestion: </a>
+						</p>
+					</section>
+					<section>
+						<p style="text-align:left;">HTML tagging</p>
+						<p style="font-size:60%;text-align:justify;">Lazy loading</p>
+						<p style="font-size:40%;text-align:justify;"><br><br>If an id would be added for each container I could get the script to scroll exactly to that particular
+							item which then automatically becomes active, so I can get access to everything within that category.
+							<br>The code would look something like this:
+						</p>
+						<blockquote>
+							<pre>
+								<code style="font-size:60%;text-align:left;">
+<div id="two-column" class="...">
+	<section id="Banner" class="ignore this bit->"></section>
+	<div id="Featured"></div>
+	<div id="Bingo"></div>
+	<div id="Slots"></div>
+	<div id="Cards"></div>
+	<div id="Roulette"></div>
+</div>
+								</code>
+							</pre>
+						</blockquote>
+					</section>
+				</section>
+				<section>
+					<p style="text-align:left;">HTML tagging</p>
+					<p style="font-size:60%;text-align:justify;">Conclusion</p>
+					<p style="font-size:40%;text-align:justify;">
+						<br>If an element has an id it is supper easy to locate and control everything else within the test.
+						When a website is under develepment it is essential to use tags as specific as possible.
+						Once the item has an id, the content can be moved around, change size, apply lazy loading, etc...
+						On the other hand when you don't have an id every time the classname or position is changed the scriptis  going to have an error.
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controlsLayout: 'edge',
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
